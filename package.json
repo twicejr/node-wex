@@ -1,22 +1,22 @@
 {
-  "name": "btc-e",
-  "description": "btc-e.com API client for node.js",
-  "homepage": "https://github.com/pskupinski/node-btc-e",
+  "name": "wex",
+  "description": "wex.nz API client for node.js",
+  "homepage": "https://github.com/krieghof/node-wex",
   "keywords": [
     "btc-e",
     "btc",
     "ltc",
     "bitcoin",
-    "litecoin"
+    "litecoin",
+    "wex",
+    "exchange",
+    "market"
   ],
-  "author": "Preston Skupinski",
-  "contributors": [
-    "Dmitry Shirokov <deadrunk@gmail.com>"
-  ],
+  "author": "Manuel Wassermann",
   "licenses": [
     {
       "type": "ISC",
-      "url": "https://github.com/pskupinski/node-btc-e/blob/master/LICENSE.txt"
+      "url": "https://github.com/krieghof/node-wex/blob/master/LICENSE.txt"
     }
   ],
   "dependencies": {
@@ -24,11 +24,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pskupinski/node-btc-e"
+    "url": "git+https://github.com/krieghof/node-wex.git"
   },
-  "main": "btc-e.js",
+  "main": "wex.js",
   "engines": {
     "node": ">=0.8"
   },
-  "version": "1.0.5"
+  "version": "1.0.0",
+  "bugs": {
+    "url": "https://github.com/krieghof/node-wex/issues"
+  },
+  "license": "ISC",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  }
 }

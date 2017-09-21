@@ -3,9 +3,9 @@ var request = require('request'),
     crypto = require('crypto'),
     querystring = require('querystring');
 
-var BTCE = function(apiKey, secret, options) {
-  this.url = 'https://btc-e.com/tapi';
-  this.publicApiUrl = 'https://btc-e.com/api/2/';
+var WEX = function(apiKey, secret, options) {
+  this.url = 'https://wex.nz/tapi';
+  this.publicApiUrl = 'https://wex.nz/api/2/';
   this.timeout = 5000;
   this.apiKey = apiKey;
   this.secret = secret;
@@ -32,7 +32,7 @@ var BTCE = function(apiKey, secret, options) {
   }
 };
 
-BTCE.prototype._sendRequest = function (options, callback) {
+WEX.prototype._sendRequest = function (options, callback) {
   var self = this;
   var requestOptions = {
     timeout: self.timeout,
@@ -64,7 +64,7 @@ BTCE.prototype._sendRequest = function (options, callback) {
   });
 };
 
-BTCE.prototype.makeRequest = function(method, params, callback) {
+WEX.prototype.makeRequest = function(method, params, callback) {
   var self = this;
 
   if(!self.apiKey || !self.secret) {
@@ -98,36 +98,36 @@ BTCE.prototype.makeRequest = function(method, params, callback) {
   }, callback);
 };
 
-BTCE.prototype.makePublicApiRequest = function(pair, method, callback) {
+WEX.prototype.makePublicApiRequest = function(pair, method, callback) {
   this._sendRequest({
     url: this.publicApiUrl + pair + '/' + method
   }, callback);
 };
 
-BTCE.prototype.getInfo = function(callback) {
+WEX.prototype.getInfo = function(callback) {
   this.makeRequest('getInfo', {}, callback);
 };
 
-BTCE.prototype.transHistory = function(params, callback) {
+WEX.prototype.transHistory = function(params, callback) {
   this.makeRequest('TransHistory', params, callback);
 };
 
-BTCE.prototype.tradeHistory = function(params, callback) {
+WEX.prototype.tradeHistory = function(params, callback) {
   this.makeRequest('TradeHistory', params, callback);
 };
 
-BTCE.prototype.orderInfo = function(paramsOrOrderId, callback) {
+WEX.prototype.orderInfo = function(paramsOrOrderId, callback) {
   var inputType = typeof paramsOrOrderId;
   var input = (inputType === 'string' || inputType === 'number') ?
     {order_id: paramsOrOrderId} : paramsOrOrderId;
   this.makeRequest('OrderInfo', input, callback);
 };
 
-BTCE.prototype.orderList = function(params, callback) {
+WEX.prototype.orderList = function(params, callback) {
   this.makeRequest('OrderList', params, callback);
 };
 
-BTCE.prototype.activeOrders = function(pair, callback) {
+WEX.prototype.activeOrders = function(pair, callback) {
   if (!callback) {
     callback = pair;
     pair = null;
@@ -136,7 +136,7 @@ BTCE.prototype.activeOrders = function(pair, callback) {
   this.makeRequest('ActiveOrders', {pair: pair}, callback);
 };
 
-BTCE.prototype.trade = function(pair, type, rate, amount, callback) {
+WEX.prototype.trade = function(pair, type, rate, amount, callback) {
   this.makeRequest('Trade', {
     'pair': pair,
     'type': type,
@@ -145,27 +145,27 @@ BTCE.prototype.trade = function(pair, type, rate, amount, callback) {
   }, callback);
 };
 
-BTCE.prototype.cancelOrder = function(paramsOrOrderId, callback) {
+WEX.prototype.cancelOrder = function(paramsOrOrderId, callback) {
   var inputType = typeof paramsOrOrderId;
   var input = (inputType === 'string' || inputType === 'number') ?
     {order_id: paramsOrOrderId} : paramsOrOrderId;
   this.makeRequest('CancelOrder', input, callback);
 };
 
-BTCE.prototype.ticker = function(pair, callback) {
+WEX.prototype.ticker = function(pair, callback) {
   this.makePublicApiRequest(pair, 'ticker', callback);
 };
 
-BTCE.prototype.trades = function(pair, callback) {
+WEX.prototype.trades = function(pair, callback) {
   this.makePublicApiRequest(pair, 'trades', callback);
 };
 
-BTCE.prototype.depth = function(pair, callback) {
+WEX.prototype.depth = function(pair, callback) {
   this.makePublicApiRequest(pair, 'depth', callback);
 };
 
-BTCE.prototype.fee = function(pair, callback) {
+WEX.prototype.fee = function(pair, callback) {
   this.makePublicApiRequest(pair, 'fee', callback);
 };
 
-module.exports = BTCE;
+module.exports = WEX;
