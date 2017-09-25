@@ -5,7 +5,7 @@ var request = require('request'),
 
 var WEX = function(apiKey, secret, options) {
   this.url = 'https://wex.nz/tapi';
-  this.publicApiUrl = 'https://wex.nz/api/2/';
+  this.publicApiUrl = 'https://wex.nz/api/3/';
   this.timeout = 5000;
   this.apiKey = apiKey;
   this.secret = secret;
@@ -98,10 +98,20 @@ WEX.prototype.makeRequest = function(method, params, callback) {
   }, callback);
 };
 
-WEX.prototype.makePublicApiRequest = function(pair, method, callback) {
-  this._sendRequest({
-    url: this.publicApiUrl + pair + '/' + method
+WEX.prototype.makePublicApiRequest = function(pair, limit, method, callback) {
+
+    var url =  this.publicApiUrl + method;
+    if (pair) {
+        url += '/' + pair;
+    }
+    if (limit) {
+        url += "?limit=" + limit;
+    }
+
+    this._sendRequest({
+    url: url
   }, callback);
+
 };
 
 WEX.prototype.getInfo = function(callback) {
@@ -152,6 +162,7 @@ WEX.prototype.cancelOrder = function(paramsOrOrderId, callback) {
   this.makeRequest('CancelOrder', input, callback);
 };
 
+<<<<<<< HEAD:wex.js
 WEX.prototype.ticker = function(pair, callback) {
   this.makePublicApiRequest(pair, 'ticker', callback);
 };
@@ -169,3 +180,23 @@ WEX.prototype.fee = function(pair, callback) {
 };
 
 module.exports = WEX;
+=======
+WEX.prototype.info = function ( callback) {
+    this.makePublicApiRequest(false, false, 'info', callback);
+};
+
+WEX.prototype.ticker = function(pair, callback) {
+  this.makePublicApiRequest(pair, false, 'ticker', callback);
+};
+
+WEX.prototype.trades = function(pair, limit, callback) {
+  this.makePublicApiRequest(pair, limit, 'trades', callback);
+};
+
+WEX.prototype.depth = function(pair, limit, callback) {
+  this.makePublicApiRequest(pair, limit, 'depth', callback);
+};
+
+
+module.exports = WEX;
+>>>>>>> cb1d03c73f6216b5f08ab2bd89c79ce697451d7a:btc-e.js

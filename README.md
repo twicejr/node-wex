@@ -1,7 +1,7 @@
 node-wex
 =====
 
-An unofficial node.js client for the [wex.nz trade API](https://wex.nz/tapi/docs) including v2 public api methods(depth, fee, ticker, and trades).
+An unofficial node.js client for the [wex.nz trade API](https://wex.nz/tapi/docs) including V3 Pubic API
 
 ## Installation
 
@@ -40,7 +40,7 @@ When passed as a hash, the following options are supported:
 * timeout - The timeout to use when making requests, defaults to 5 seconds
 * nonce - A nonce generation function ([Custom nonce generation](#custom-nonce-generation))
 * tapi_url - The base url to use when making trade api requests, defaults to `https://wex.nz/tapi`
-* public_url - The base url to use when making public api requests, defaults to `https://wex.nz/api/2/`
+* public_url - The base url to use when making public api requests, defaults to `https://wex.nz/api/3/`
 * strict_ssl - `true` by default, but can be set to `false` if desired, such as if wex.nz has problems with their SSL certificate again.
 
 ```javascript
@@ -84,6 +84,8 @@ wex.getInfo(function(err, info) {
 ## Reference
 
 A method-by-method [reference](https://github.com/krieghof/node-wex/wiki/API-Reference) is available on the wiki.
+## Credits
+All credits goes to [pskupinski](https://github.com/pskupinski/node-btc-e), as initial creator. 
 
 ## License
 
