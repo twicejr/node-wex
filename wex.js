@@ -162,25 +162,6 @@ WEX.prototype.cancelOrder = function(paramsOrOrderId, callback) {
   this.makeRequest('CancelOrder', input, callback);
 };
 
-<<<<<<< HEAD:wex.js
-WEX.prototype.ticker = function(pair, callback) {
-  this.makePublicApiRequest(pair, 'ticker', callback);
-};
-
-WEX.prototype.trades = function(pair, callback) {
-  this.makePublicApiRequest(pair, 'trades', callback);
-};
-
-WEX.prototype.depth = function(pair, callback) {
-  this.makePublicApiRequest(pair, 'depth', callback);
-};
-
-WEX.prototype.fee = function(pair, callback) {
-  this.makePublicApiRequest(pair, 'fee', callback);
-};
-
-module.exports = WEX;
-=======
 WEX.prototype.info = function ( callback) {
     this.makePublicApiRequest(false, false, 'info', callback);
 };
@@ -199,4 +180,3 @@ WEX.prototype.depth = function(pair, limit, callback) {
 
 
 module.exports = WEX;
->>>>>>> cb1d03c73f6216b5f08ab2bd89c79ce697451d7a:btc-e.js
