@@ -20,7 +20,7 @@
     }
   ],
   "dependencies": {
-    "request": "2.49.0"
+    "request": "2.83.0"
   },
   "repository": {
     "type": "git",
