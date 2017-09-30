@@ -20,7 +20,7 @@
     }
   ],
   "dependencies": {
-    "request": "2.49.0"
+    "request": "2.83.0"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
   "engines": {
     "node": ">=0.8"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "bugs": {
     "url": "https://github.com/krieghof/node-wex/issues"
   },
