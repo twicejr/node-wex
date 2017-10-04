@@ -1,4 +1,4 @@
-node-wex
+node-wex [![npm](https://img.shields.io/npm/dt/node-wex.svg)]()
 =====
 
 An unofficial node.js client for the [wex.nz trade API](https://wex.nz/tapi/docs) including v2 public api methods(depth, fee, ticker, and trades).
