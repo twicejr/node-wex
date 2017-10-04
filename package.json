@@ -34,8 +34,5 @@
   "bugs": {
     "url": "https://github.com/krieghof/node-wex/issues"
   },
-  "license": "ISC",
-  "scripts": {
-    "test": "mocha --reporter spec"
-  }
+  "license": "ISC"
 }
