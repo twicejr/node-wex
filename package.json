@@ -28,9 +28,9 @@
   },
   "main": "wex.js",
   "engines": {
-    "node": ">=0.8"
+    "node": ">= 4"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bugs": {
     "url": "https://github.com/krieghof/node-wex/issues"
   },
